@@ -1,26 +1,42 @@
 package edu.cpp.cs480;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class LogEntry {
 	private String line;
-	private String date;
-	private String time;
+	private Date time;
 	private String duration;
 	private String srcIP;
 	private String destIP;
+	private String rawLog;
 	
-	LogEntry( String line, String date, String time, String duration, String srcIP, String destIP){
-		this.line = line;
-		this.date = date;
-		this.time = time;
-		this.duration = duration;
-		this.srcIP = srcIP;
-		this.destIP = destIP;
-	}
+//	public LogEntry( String line, String date, String time, String duration, String srcIP, String destIP) throws ParseException{
+//		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+//		this.time = format.parse(date + " " + time);
+//		this.line = line;
+//		this.duration = duration;
+//		this.srcIP = srcIP;
+//		this.destIP = destIP;
+//	}
+//	
+//	public LogEntry( String[] log) throws ParseException{
+//		this.line = log[0];
+//		
+//		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+//		this.time = format.parse(log[1] + " " + log[2]);
+//		this.duration = log[3];
+//		this.srcIP = log[7];
+//		this.destIP = log[8];
+//	}
 	
-	LogEntry( String[] log){
+	public LogEntry( String str ) throws ParseException{
+		String[] log = str.split(" ");
+		this.rawLog = str;
 		this.line = log[0];
-		this.date = log[1];
-		this.time = log[2];
+		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		this.time = format.parse(log[1] + " " + log[2]);
 		this.duration = log[3];
 		this.srcIP = log[7];
 		this.destIP = log[8];
@@ -29,10 +45,8 @@ public class LogEntry {
 	String getLine(){
 		return line;
 	}
-	String getDate(){
-		return date;
-	}
-	String getTime(){
+
+	Date getTime(){
 		return time;
 	}
 	String getDuration(){
@@ -45,5 +59,23 @@ public class LogEntry {
 		return destIP;
 	}
 	
+	public boolean equals( LogEntry l){
+		return ( l != null && 
+				 this.srcIP == l.srcIP &&
+				 this.destIP == l.destIP);
+	}
 	
+	@Override
+	public String toString(){
+		return "Line: " + line + "\n" +
+				"Time: " + time + "\n" +
+				"Duration: " + duration + "\n" +
+				"srcIP: " + srcIP + "\n" +
+				"destIP: " + destIP + "\n";
+	}
+
+	public String getRawLog() {
+		return rawLog;
+	}
+
 }
