@@ -24,9 +24,9 @@ public class LogReader {
 	// use a moving count of number of the requests to detect potential DOS attacks
 	private static List<AttackLog> parseLog( List<LogEntry> logEntries) {
 		final long WINDOW_LENGTH = 1000 * 60 * 1; //1 minutes
-		final long DOS_THRESHOLD_HIGH = 450;
+		final long DOS_THRESHOLD_HIGH = 500;
 		final long DOS_THRESHOLD_MEDIUM = 400;
-		final long DOS_THRESHOLD_LOW = 350;
+		final long DOS_THRESHOLD_LOW = 300;
 		List<AttackLog> detectedAttacks = new ArrayList<AttackLog>();
 		List<LogEntry> window = new LinkedList<LogEntry>();
 		AttackLog attack = null;

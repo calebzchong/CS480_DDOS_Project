@@ -115,10 +115,10 @@ public class GUI {
 					} 
 					catch ( Exception ex ){
 						ex.printStackTrace();
-//						JOptionPane.showMessageDialog(frmMain,
-//							    "Something happened",
-//							    "Something happened",
-//							    JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(frmMain,
+							    "Something happened",
+							    "Something happened",
+							    JOptionPane.WARNING_MESSAGE);
 					}
 				} 
 			}
