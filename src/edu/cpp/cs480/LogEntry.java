@@ -12,24 +12,14 @@ public class LogEntry {
 	private String destIP;
 	private String rawLog;
 	
-//	public LogEntry( String line, String date, String time, String duration, String srcIP, String destIP) throws ParseException{
-//		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-//		this.time = format.parse(date + " " + time);
-//		this.line = line;
-//		this.duration = duration;
-//		this.srcIP = srcIP;
-//		this.destIP = destIP;
-//	}
-//	
-//	public LogEntry( String[] log) throws ParseException{
-//		this.line = log[0];
-//		
-//		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-//		this.time = format.parse(log[1] + " " + log[2]);
-//		this.duration = log[3];
-//		this.srcIP = log[7];
-//		this.destIP = log[8];
-//	}
+	public LogEntry( String line, String date, String time, String duration, String srcIP, String destIP) throws ParseException{
+		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		this.time = format.parse(date + " " + time);
+		this.line = line;
+		this.duration = duration;
+		this.srcIP = srcIP;
+		this.destIP = destIP;
+	}
 	
 	public LogEntry( String str ) throws ParseException{
 		String[] log = str.split(" ");

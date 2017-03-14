@@ -11,8 +11,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.List;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextArea;
-import java.awt.Font;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 import java.awt.TextArea;
