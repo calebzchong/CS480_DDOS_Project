@@ -4,8 +4,8 @@ Group Project in CS480 Software Engineering
 
 Group Members
 
-Alfredo 
-Caleb
-Hana
-Vikas
-Zach
+Alfredo <br>
+Caleb <br>
+Hana <br>
+Vikas <br>
+Zach <br>
