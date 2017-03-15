@@ -15,6 +15,7 @@ import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 import java.awt.TextArea;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 public class GUI {
@@ -94,6 +95,12 @@ public class GUI {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				final JFileChooser fc = new JFileChooser();
+				fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("Log files", "txt", "log");
+				fc.addChoosableFileFilter( filter );
+				fc.setFileFilter(filter);
+				File workingDirectory = new File(System.getProperty("user.dir"));
+				fc.setCurrentDirectory(workingDirectory);
 				fc.showOpenDialog(null);
 				File f = fc.getSelectedFile();
 				if ( f != null){
@@ -105,7 +112,7 @@ public class GUI {
 						}
 						attacksList.setEnabled(true);
 						txtLog.setEnabled(true);
-					} catch ( ArrayIndexOutOfBoundsException poo){
+					} catch ( ArrayIndexOutOfBoundsException|java.text.ParseException poo){
 						JOptionPane.showMessageDialog(frmMain,
 							    "Not a valid log file.",
 							    "Haha",
@@ -115,7 +122,7 @@ public class GUI {
 						ex.printStackTrace();
 						JOptionPane.showMessageDialog(frmMain,
 							    "Something happened",
-							    "Something happened",
+							    "haha",
 							    JOptionPane.WARNING_MESSAGE);
 					}
 				} 
